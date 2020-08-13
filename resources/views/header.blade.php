@@ -11,6 +11,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
     integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous">
 </script>
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css">
 <link
     href="https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@100;700&family=Nanum+Gothic+Coding&display=swap"
     rel="stylesheet">
@@ -18,3 +19,4 @@
     integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
 </script>
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
+{{-- <meta name="google-signin-client_id" content="405546064526-a0hj5ukpg884ijfpskre2lfjoht7dvc0.apps.googleusercontent.com"> --}}

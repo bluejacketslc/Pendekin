@@ -15,9 +15,11 @@ class CreateUserTable extends Migration
     {
         Schema::create(str_replace("=","",base64_encode('users')), function (Blueprint $table) {
             $table->increments('id');
+            $table->string('googleId')->nullable();
             $table->string('name');
             $table->string('email');
-            $table->string('password');
+            $table->string('password')->nullable();
+            $table->string('image_url')->nullable();
             $table->integer('subscription');
             $table->timestamps();
         });
@@ -30,6 +32,6 @@ class CreateUserTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('user');
+        Schema::dropIfExists(str_replace("=","",base64_encode('users')));
     }
 }

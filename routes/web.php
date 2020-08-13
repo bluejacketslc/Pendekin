@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -17,13 +18,20 @@ Route::get('/', function () {
     return view('home');
 });
 
-Route::post('/login', 'UserController@getDataByLogin');
 
-Route::get('/logout', 'UserController@destroyLogin');
+Route::post('/login', 'auth\AuthController@getDataByLogin');
+Route::get('/logout', 'auth\AuthController@destroyLogin');
 
+Route::get('/redirect', 'auth\AuthController@redirectToProvider');
+Route::get('/callback', 'auth\AuthController@handleProviderCallback');
+
+Route::get('/register',function(){
+    return view('register');
+});
 Route::post('/register', function () {
     return view('login');
 });
-Route::post('/api','LinkController@generate');
 
+
+Route::post('/api','LinkController@generate');
 Route::get('/{url}','LinkController@getLink');

@@ -29,6 +29,6 @@ class CreateLinkTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('link');
+        Schema::dropIfExists(str_replace("=","",base64_encode('url')));
     }
 }
