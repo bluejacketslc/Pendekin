@@ -4,9 +4,24 @@ Pendekin is shortlink program web based, created because it was inspired by the 
 
 ## Installation
 
-- Install Laravel and Composer
+- Install Composer
 ```
-composer global require laravel/installer
+composer install
+```
+
+- Copy env and fill it
+```
+cp .env.example .env
+```
+
+- Regenerate APP_KEY
+```
+php artisan key:generate
+```
+
+- Run Migration and Seeder
+```
+php artisan migrate --seed
 ```
 
 ## Usage
