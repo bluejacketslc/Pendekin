@@ -23,17 +23,17 @@ class AuthController extends Controller
                 $request->session()->flash('error', 'email or password wrong!');
                 return redirect("/");
             }
-            if(password_verify($password,$resultAccount[0]->password)){
-                $valid_user = new User();
-                foreach($resultAccount as $account){
-                    $valid_user->username = $account->name;
-                    $valid_user->email = $account->email;
-                    $valid_user->googleId = $account->googleId;
-                    $valid_user->imageUrl = $account->image_url;
-                    $valid_user->subscription = $account->subscription;
+            foreach($resultAccount as $account){
+                if(password_verify($password,$account->password)){
+                    $valid_user = new User();
+                        $valid_user->username = $account->name;
+                        $valid_user->email = $account->email;
+                        $valid_user->googleId = $account->googleId;
+                        $valid_user->imageUrl = $account->image_url;
+                        $valid_user->subscription = $account->subscription;
+                    $request->session()->put("user",$valid_user);
+                    return redirect("/");
                 }
-                $request->session()->put("user",$valid_user);
-                return redirect("/");
             }
         }
         else
@@ -109,18 +109,25 @@ class AuthController extends Controller
 
     function register(Request $request){
         $time = new DateTime(null,new DateTimeZone('Asia/Jakarta'));
-        $name=$request->input('name');
+        $name=$request->input('username');
         $email=$request->input('email');
         $password=$request->input('password');
         $subscription=1;
         $createdAt=$time->format('Y-m-d H:i:s');
         //validator format
-
-
+        $this->validate($request,[
+            'username'=>'required|max:12|min:4',
+            'email'=>'required|email',
+            'password'=>'required|max:24|min:6|required_with:repassword|same:repassword',
+            'repassword'=>'required|max:24|min:6'
+        ]);
         //validator db
-
+        if(count(UserController::getDataByEmail($email))>0){
+            $request->session()->flash('error', 'email is exists!');
+            return redirect("/register");
+        }
         //insert
-        DB::table(str_replace("=","",base64_encode('url')))->insert(
+        DB::table(str_replace("=","",base64_encode('users')))->insert(
             [
                 'name'=>$name,
                 'email'=>$email,

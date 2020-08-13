@@ -25,12 +25,18 @@ Route::get('/logout', 'auth\AuthController@destroyLogin');
 Route::get('/redirect', 'auth\AuthController@redirectToProvider');
 Route::get('/callback', 'auth\AuthController@handleProviderCallback');
 
+Route::get('/about',function(){
+    return view('about');
+});
 Route::get('/register',function(){
     return view('register');
 });
-Route::post('/register', function () {
-    return view('login');
+Route::get('/profile',function(){
+    if(!session()->has('user'))
+        return redirect('/');
+    return view('profile');
 });
+Route::post('/register','auth\AuthController@register');
 
 
 Route::post('/api','LinkController@generate');

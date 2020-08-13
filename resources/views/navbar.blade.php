@@ -51,7 +51,6 @@
                     <div class="modal-footer d-flex justify-content-center">
                         <button class="btn btn-danger">Login</button>
                         <a href="/redirect">Login dengan Google disini</a>
-                        {{-- <div class="g-signin2" data-onsuccess="onSignIn"></div> --}}
                     </div>
                 </div>
             </div>
@@ -73,19 +72,7 @@
             </li>
         </ul>
     </nav>
-    {{-- <script src="https://apis.google.com/js/platform.js" async defer></script> --}}
     <script>
-        // function onSignIn(googleUser) {
-        //     let profile = googleUser.getBasicProfile();
-        //     let data = {
-        //         "ID": profile.getId(),
-        //         "Name": profile.getName(),
-        //         "ImageUrl": profile.getImageUrl(),
-        //         "Email": profile.getEmail()
-        //         $('')
-        //     };
-        // }
-
     </script>
 @else
     <nav class="navbar navbar-expand-sm navbar-light" style="background-color: rgb(255, 111, 97);">

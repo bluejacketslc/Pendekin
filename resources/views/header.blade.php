@@ -19,4 +19,3 @@
     integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
 </script>
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
-{{-- <meta name="google-signin-client_id" content="405546064526-a0hj5ukpg884ijfpskre2lfjoht7dvc0.apps.googleusercontent.com"> --}}
